@@ -1,0 +1,28 @@
+# Aula P2.0 Occupata — Jekyll Configuration
+title: "Aula P2.0 Occupata"
+description: "Spazio libero autogestito all'Università della Calabria. Studio, cultura, comunità e partecipazione dal basso."
+lang: it
+
+# Collections
+collections:
+  eventi:
+    output: true
+    permalink: /eventi/:path/
+    sort_by: data
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "eventi"
+    values:
+      layout: "evento"
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

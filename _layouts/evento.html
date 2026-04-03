@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<article class="evento-page">
+    <div class="evento-hero">
+        <div class="container">
+            <a href="{{ '/' | relative_url }}#eventi" class="evento-back">← Torna agli eventi</a>
+            <div class="evento-hero-content">
+                <div class="evento-badge evento-badge--{{ page.categoria | default: 'altro' }}">
+                    {% case page.categoria %}
+                        {% when 'concerto' %}🎵 Concerto
+                        {% when 'dibattito' %}💬 Dibattito
+                        {% when 'proiezione' %}🎬 Proiezione
+                        {% when 'workshop' %}🛠️ Workshop
+                        {% when 'assemblea' %}📋 Assemblea
+                        {% else %}📌 Evento
+                    {% endcase %}
+                </div>
+                <h1 class="evento-page-title">{{ page.titolo }}</h1>
+                <div class="evento-meta-row">
+                    <span class="evento-meta-item">📅 {{ page.data | date: "%d %B %Y" }}</span>
+                    {% if page.ora %}<span class="evento-meta-item">🕐 {{ page.ora }}</span>{% endif %}
+                    {% if page.luogo %}<span class="evento-meta-item">📍 {{ page.luogo }}</span>{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="evento-body">
+        <div class="container">
+            <div class="evento-content-wrapper">
+                {% if page.descrizione %}
+                <p class="evento-description">{{ page.descrizione }}</p>
+                {% endif %}
+
+                {% if content != "" and content != "\n" %}
+                <div class="evento-text">
+                    {{ content }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</article>
